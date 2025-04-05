@@ -59,8 +59,8 @@ num_simulations = st.sidebar.slider("Monte Carlo Simulations", min_value=100, ma
 
 
 # Telegram Bot Credentials
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
-TELEGRAM_CHAT_ID = "7953882980"
+TELEGRAM_BOT_TOKEN = st.secrets["TELEGRAM_TOKEN"]
+TELEGRAM_CHAT_ID = st.secrets["CHAT_ID"]
 
 # Function to Send Telegram Alert
 def send_telegram_alert(stock, current_price, stop_loss, take_profit):
