@@ -59,7 +59,7 @@ num_simulations = st.sidebar.slider("Monte Carlo Simulations", min_value=100, ma
 
 
 # Telegram Bot Credentials
-TELEGRAM_BOT_TOKEN = "8045664062:AAEa70O6QgRa61xEHkPO8ON7y6zL5XrDm3g"
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
 TELEGRAM_CHAT_ID = "7953882980"
 
 # Function to Send Telegram Alert
