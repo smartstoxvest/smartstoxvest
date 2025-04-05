@@ -60,9 +60,9 @@ num_simulations = st.sidebar.slider("Monte Carlo Simulations", min_value=100, ma
 
 
 # Telegram Bot Credentials
-TELEGRAM_BOT_TOKEN = st.secrets["TELEGRAM_TOKEN"]
+#TELEGRAM_BOT_TOKEN = st.secrets["TELEGRAM_TOKEN"]
 #TELEGRAM_CHAT_ID = st.secrets["CHAT_ID"]
-CHAT_ID = "7953882980"
+#CHAT_ID = "7953882980"
 
 # Function to Send Telegram Alert
 def send_telegram_alert(stock, current_price, stop_loss, take_profit):
@@ -75,9 +75,9 @@ def send_telegram_alert(stock, current_price, stop_loss, take_profit):
     ⚠️ Action Required: Adjust your position accordingly!
     """
 
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    params = {"chat_id": TELEGRAM_CHAT_ID, "text": message, "parse_mode": "Markdown"}
-    response = requests.get(url, params=params)
+    #url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    #params = {"chat_id": TELEGRAM_CHAT_ID, "text": message, "parse_mode": "Markdown"}
+    #response = requests.get(url, params=params)
     
     if response.status_code == 200:
         print(f"✅ Alert sent for {stock}")
@@ -397,10 +397,10 @@ with tab1:
                 news_decision, sentiment = get_news_decision(stock)
 
                 if current_price >= stop_loss:
-                    send_telegram_alert(stock, current_price, stop_loss, take_profit)
+                    #send_telegram_alert(stock, current_price, stop_loss, take_profit)
                     decision = "🔴 Stop-Loss Hit (Sell)"
                 elif current_price >= take_profit:
-                    send_telegram_alert(stock, current_price, stop_loss, take_profit)
+                    #send_telegram_alert(stock, current_price, stop_loss, take_profit)
                     decision = "🟢 Take-Profit Hit (Sell)"
                 else:
                     decision = "✅ Hold"
