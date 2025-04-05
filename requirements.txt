@@ -8,3 +8,4 @@ tensorflow
 fpdf
 textblob
 shap
+seaborn
