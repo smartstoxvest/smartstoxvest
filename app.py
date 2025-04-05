@@ -21,7 +21,6 @@ import re
 import shap
 import warnings
 
-
 # Enhancements for Smart Investment Dashboard
 # Options 4 (Backtesting), 6 (Crypto-specific volatility), 8 (Explainability for LSTM)
 
@@ -566,9 +565,7 @@ with tab2:
             import warnings
             background = x[:100].reshape((100, x.shape[1]))
             test_sample = x[-1:].reshape((1, x.shape[1]))
-            feature_names = [f"Day -{i}" for i in range(x.shape[1], 0, -1)]  # e.g., Day -50 to Day -1
-            explainer = shap.Explainer(model.predict, background, feature_names=feature_names)
-
+            explainer = shap.Explainer(model.predict, background)
             shap_values = explainer(test_sample)
 
             st.markdown("#### 🔍 SHAP Explainability")
