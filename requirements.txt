@@ -5,11 +5,3 @@ yfinance
 matplotlib
 plotly
 tensorflow
-io
-FPDF
-pickle
-os
-requests
-re
-shap
-warnings
