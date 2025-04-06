@@ -569,19 +569,20 @@ with tab2:
             shap_values = explainer(test_sample)
 
             st.markdown("#### 🔍 SHAP Explainability")
-            shap_fig = shap.plots.bar(shap_values[0], show=False)
-            plt.tight_layout()
-            st.pyplot(plt.gcf())
+            fig, ax = plt.subplots(figsize=(10, 5))
+            shap.plots.bar(shap_values[0], show=False, ax=ax)
+            st.pyplot(fig)
+            plt.clf()  # Clears SHAP figure from memory
         except Exception as e:
             warnings.warn(str(e))
             st.warning(f"⚠️ SHAP explanation failed: {e}")
 
         st.markdown("#### 📊 Correlation Heatmap")
-        import seaborn as sns
+        
         corr = data.corr()
-        fig, ax = plt.subplots(figsize=(10, 6))
-        sns.heatmap(corr, annot=True, cmap='coolwarm', fmt=".2f", ax=ax)
-        st.pyplot(fig)
+        fig_corr, ax_corr = plt.subplots(figsize=(10, 6))
+        sns.heatmap(corr, annot=True, cmap='coolwarm', fmt=".2f", ax=ax_corr)
+        st.pyplot(fig_corr)
         st.markdown("""
         🔍 **Interpretation:**
         - SHAP shows which time steps influenced the prediction most.
