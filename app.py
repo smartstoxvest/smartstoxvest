@@ -34,7 +34,7 @@ st.title("📈 Smart Investment Decision")
 st.sidebar.header("Select Investment Preferences")
 asset_type = st.sidebar.selectbox("Select Asset Type", ["Stock", "ETF", "Crypto"])
 exchange = st.sidebar.selectbox("Select Exchange", ["LSE", "NASDAQ", "NYSE", "NSE", "Crypto"])
-stocks_input = st.sidebar.text_area("Enter Stock Symbols (comma-separated)")
+stocks_input = st.sidebar.text_area("Enter Stock Symbols (comma-separated) i.e BARC,TSCO,GSK")
 
 # Parse stock symbols
 stocks = [stock.strip().upper() for stock in stocks_input.split(",") if stock.strip()]
