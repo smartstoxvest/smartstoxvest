@@ -2,10 +2,3 @@ streamlit
 pandas
 numpy
 yfinance
-matplotlib
-plotly
-tensorflow
-fpdf
-textblob
-shap
-seaborn
