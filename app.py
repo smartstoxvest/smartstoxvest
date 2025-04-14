@@ -455,8 +455,14 @@ with tab1:
 
         if st.session_state.selected_short_term_stock:
             selected_stock = st.session_state.selected_short_term_stock
-            st.subheader(f"Short-Term Analysis for {selected_stock}")
-            data = st.session_state.portfolio_data[selected_stock]
+            #st.subheader(f"Short-Term Analysis for {selected_stock}")
+            #data = st.session_state.portfolio_data[selected_stock]
+            if selected_stock not in st.session_state.portfolio_data:
+                st.warning(f"⚠️ No data found for {selected_stock}. Please check the symbol and exchange.")
+            else:
+                st.subheader(f"Short-Term Analysis for {selected_stock}")
+                data = st.session_state.portfolio_data[selected_stock]
+
 
             st.subheader("📈 Candlestick Chart")
             fig = go.Figure()
