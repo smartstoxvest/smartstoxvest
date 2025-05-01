@@ -21,6 +21,17 @@ import re
 import shap
 import warnings
 
+# 🚧 Maintenance Mode Toggle
+MAINTENANCE_MODE = True  # Set to False when you're ready to launch again
+
+if MAINTENANCE_MODE:
+    import streamlit as st
+    st.set_page_config(page_title="SmartStoxVest - Under Maintenance", layout="centered")
+    st.title("🚧 SmartStoxVest is Under Upgrade 🚧")
+    st.warning("We're currently performing an upgrade to enhance your experience.\n\nPlease check back shortly. Thanks for your patience! 🙏")
+    st.stop()  # This halts the rest of the app from executing
+
+
 # Enhancements for Smart Investment Dashboard
 # Options 4 (Backtesting), 6 (Crypto-specific volatility), 8 (Explainability for LSTM)
 
